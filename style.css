@@ -312,3 +312,81 @@ body {
 .modern-bg {
   background: linear-gradient(135deg, #ffffff 0%, #faf6f1 50%, #f6f1ea 100%);
 }
+
+.fourth-screen {
+  padding: 0 15px;
+}
+.location-card {
+  max-width: 350px;
+  margin: 0 auto;
+  padding-top: 7px;
+}
+
+.location-card .location-card-img img {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.location-card .location-card-title {
+  background-color: #c9bba6;
+  text-align: center;
+  padding: 11px;
+}
+.location-card .location-card-title h3 {
+  margin-bottom: 0;
+}
+.location-card .location-card-content {
+  padding: 11px;
+  background-color: #ffffff9c;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  text-align: center;
+}
+.location-card .location-card-content p {
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #454545;
+}
+.dress-code {
+  max-width: 350px;
+  border-radius: 5px;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 15px;
+}
+.dress-code .title {
+  background-color: #c9bba6;
+  padding: 11px;
+}
+.dress-code .title h3 {
+  margin-bottom: 0;
+}
+.dress-code__colors {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  padding: 30px 11px;
+  background-color: #5847289c;
+}
+
+/* Базов стил за цветните кръгове */
+.color {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Конкретни цветове */
+.color--white {
+  background: #ffffff;
+}
+
+.color--champagne {
+  background: #d6c08f;
+}
+
+.color--beige {
+  background: #9c8565;
+}
