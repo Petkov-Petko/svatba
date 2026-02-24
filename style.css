@@ -1,0 +1,314 @@
+:root {
+  --fade: 50px;
+  --bg: #f6f1ea5b;
+  --dim: 0.35;
+  --text: #1a1a1a;
+  --serif: "Playfair Display", serif;
+  --script: "Great Vibes", cursive;
+  --classic:
+    "Cormorant Garamond", serif; /* ако я ползваш - добави я в Google Fonts */
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  font-size: 16px;
+  color: var(--text);
+}
+
+/* Snap scroll container */
+.screens {
+  height: 100vh;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Base screen */
+.screen {
+  position: relative;
+  height: 100vh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  background: var(--bg);
+
+  /* фонова снимка от CSS */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Снимки в CSS */
+.screen--roses {
+  background-image: url("/images/roses.webp");
+}
+
+.screen--invites {
+  background-image: url("/images/invites.webp");
+}
+
+/* content layer */
+.content {
+  position: relative;
+  z-index: 3;
+  height: 100%;
+}
+
+/* Overlay dim */
+.screen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: rgba(0, 0, 0, var(--dim));
+}
+
+/* Fade top + bottom (default) */
+.screen::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 0.85) 30px,
+      rgba(255, 255, 255, 0.4) 60px,
+      rgba(255, 255, 255, 0) 120px
+    ),
+    linear-gradient(
+      to top,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 0.85) 30px,
+      rgba(255, 255, 255, 0.4) 60px,
+      rgba(255, 255, 255, 0) 120px
+    );
+}
+
+/* Специален fade за screen 2 */
+.screen--invites-fade::before {
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 0.85) 10px,
+      rgba(255, 255, 255, 0.4) 30px,
+      rgba(255, 255, 255, 0) 50px
+    ),
+    linear-gradient(
+      to top,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 0.85) 90px,
+      rgba(255, 255, 255, 0.4) 180px,
+      rgba(255, 255, 255, 0) 300px
+    );
+}
+
+/* ---------------- HERO (screen 1) ---------------- */
+.hero {
+  display: grid;
+  place-items: center;
+}
+
+.hero__text {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* общо за hero top/bottom */
+.hero__top,
+.hero__bottom {
+  font-family: var(--classic);
+  font-size: clamp(2.6rem, 7vw, 4.3rem);
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.995);
+  text-shadow: 0 5px 11px rgba(0, 0, 0, 0.855);
+}
+
+.hero__script {
+  margin-top: 6px;
+  font-family: var(--script);
+  font-size: clamp(3rem, 8vw, 4.5rem);
+  line-height: 0.9;
+  color: rgba(20, 20, 20, 0.65);
+  text-shadow: 0 2px 14px rgba(255, 255, 255, 0.35);
+}
+
+/* ---------------- SCREEN 2 ---------------- */
+.second-screen {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 1.5vh;
+}
+
+.second-screen__text {
+  text-align: center;
+  width: 100%;
+  color: var(--text);
+}
+
+.second-screen__text p {
+  font-family: var(--classic);
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  margin-bottom: 3px;
+  opacity: 0.7;
+}
+
+.second-screen__text h2 {
+  font-family: var(--serif);
+  font-size: clamp(3rem, 6vw, 3rem);
+  font-weight: 500;
+  opacity: 0.7;
+}
+
+.second-screen__text h3 {
+  font-family: var(--script);
+  font-size: 2.1rem;
+  font-weight: 400;
+  opacity: 0.7;
+  margin: 0;
+}
+
+/* ---------------- SCREEN 3 ---------------- */
+.third-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  padding: 10vh 20px 8vh;
+  color: var(--text);
+}
+
+.top-text p {
+  font-family: var(--classic);
+  font-size: 0.9rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+.middle-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 21px;
+}
+
+.middle-text h2 {
+  font-family: var(--script);
+  font-size: clamp(3.5rem, 10vw, 5rem);
+  font-weight: 400;
+  margin: 0;
+  line-height: 0.9;
+}
+
+.date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--serif);
+  letter-spacing: 0.08em;
+  color: var(--text);
+}
+
+.month,
+.year {
+  font-size: 1.3rem;
+  letter-spacing: 0.15em;
+}
+
+.day-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.side {
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  padding: 0 6px;
+  border-top: 1px solid rgba(26, 26, 26, 0.3);
+  border-bottom: 1px solid rgba(26, 26, 26, 0.3);
+}
+
+.big-day {
+  font-size: 3rem;
+  font-weight: 500;
+  padding: 0 10px;
+}
+
+.bottom-text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.bottom-text h4 {
+  font-family: var(--classic);
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  margin: 0;
+  opacity: 0.85;
+}
+
+/* ---------------- SCREEN 4 ---------------- */
+.fourth-screen h2 {
+  font-family: var(--serif);
+  font-size: clamp(3rem, 6vw, 3rem);
+  font-weight: 500;
+}
+
+.fourth-screen h3 {
+  font-family: var(--script);
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 500;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 7px;
+  margin-top: 3rem;
+  color: var(--text);
+}
+
+.timeline-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-bottom: 11px;
+  border-bottom: 3px solid rgba(26, 26, 26, 0.228);
+}
+
+.timeline .time {
+  font-family: var(--classic);
+  font-size: 1.3rem;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+}
+
+.timeline .event {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.modern-bg {
+  background: linear-gradient(135deg, #ffffff 0%, #faf6f1 50%, #f6f1ea 100%);
+}
