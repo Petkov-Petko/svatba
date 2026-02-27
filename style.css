@@ -42,21 +42,21 @@ body {
 .screen--roses {
   background:
     linear-gradient(rgb(0 0 0 / 28%), rgba(0, 0, 0, 0.324)),
-    url('/images/roses.webp') center/cover no-repeat;
+    url('images/roses.webp') center/cover no-repeat;
 }
 
 @media screen and (min-width: 768px) {
   .screen--roses {
     background:
       linear-gradient(rgb(0 0 0 / 28%), rgba(0, 0, 0, 0.324)),
-      url('/images/roses.webp') center/cover no-repeat;
+      url('images/roses.webp') center/cover no-repeat;
   }
 }
 
 .screen--invites {
   background:
     linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
-    url('/images/invites.webp') center/cover no-repeat;
+    url('images/invites.webp') center/cover no-repeat;
 }
 
 /* Overlay dim */
