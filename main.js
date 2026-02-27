@@ -8,7 +8,7 @@ let allowedGuests = [];
 let selectedGuests = [];
 
 function normalizeName(s) {
-  return (s || "").trim().replace(/\s+/g, " ");
+  return (s || "").trim().replace(/\s+/g, " ").toLowerCase();
 }
 
 function syncHidden() {
