@@ -2,7 +2,7 @@
   --fade: 50px;
   --bg: #f6f1ea5b;
   --dim: 0.35;
-  --text: #1a1a1a;
+  --text: #000000c9;
   --serif: "Playfair Display", serif;
   --script: "Great Vibes", cursive;
   --classic: "Lobster", sans-serif;
@@ -17,6 +17,7 @@ body {
 
 /* Snap scroll container */
 .screens {
+  height: 100dvh;
   height: 100vh;
   overflow-y: auto;
   scroll-snap-type: y mandatory;
@@ -26,6 +27,7 @@ body {
 
 /* Base screen */
 .screen {
+  height: 100dvh;
   height: 100vh;
   position: relative;
   scroll-snap-align: start;
@@ -164,14 +166,15 @@ body {
   font-weight: 600;
   letter-spacing: 0.08em;
   margin-bottom: 3px;
-  color: #292929;
-}
+  color: #b7a892;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);}
 
 .second-screen__text h2 {
   font-family: var(--script);
   font-size: clamp(3.6rem, 6vw, 5rem);
   font-weight: 500;
-  color: #4f4d4d;
+  color: #3a3632;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
 
 .second-screen__text h3 {
@@ -179,7 +182,8 @@ body {
   font-size: 2.1rem;
   font-weight: 400;
   margin: 0;
-  color: #ffc007;
+  color: #c6a75e;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
 
 /* ---------------- SCREEN 3 ---------------- */
