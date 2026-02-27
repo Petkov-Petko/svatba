@@ -112,19 +112,3 @@ fullNameEl.addEventListener("input", () => {
     setAllowedGuestsForPerson(fullNameEl.value);
   }, 180);
 });
-
-// submit (оставям го както ти беше)
-const formEl = document.getElementById("rsvpForm");
-if (formEl) {
-  formEl.addEventListener("submit", (e) => {
-    e.preventDefault();
-    alert(
-      "Формата е готова. За реално изпращане добави fetch към твой endpoint.",
-    );
-  });
-}
-
-// init
-setAllowedGuestsForPerson("");
-
-

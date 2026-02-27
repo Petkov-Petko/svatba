@@ -167,7 +167,8 @@ body {
   letter-spacing: 0.08em;
   margin-bottom: 3px;
   color: #b7a892;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);}
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
 
 .second-screen__text h2 {
   font-family: var(--script);
@@ -406,25 +407,23 @@ body {
 
 /* Базов стил за цветните кръгове */
 .color {
-  width: 38px;
-  height: 38px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
-  border: 2px solid rgba(255, 255, 255, 0.8);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 }
 
 /* Конкретни цветове */
 .color--white {
-  background: #ffffff;
+  background-image: url('images/white-palette.png');
 }
 
 .color--champagne {
-  background: #d6c08f;
+  background-image: url('images/gold-palette.png');
 }
 
 .color--beige {
-  background: #9c8565;
-}
+  background-image: url('images/brown-palette.png');}
 
 .screen.six-screen {
   scroll-snap-type: y mandatory;
