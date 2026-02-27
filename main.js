@@ -112,3 +112,23 @@ fullNameEl.addEventListener("input", () => {
     setAllowedGuestsForPerson(fullNameEl.value);
   }, 180);
 });
+
+const card = document.getElementById("card");
+const intro = document.getElementById("intro");
+const seal = document.getElementById("seal");
+
+seal.addEventListener("click", () => {
+
+  // 1️⃣ печатът изчезва
+  seal.classList.add("hide");
+
+  // 2️⃣ след малко започва отварянето
+  setTimeout(() => {
+    card.classList.add("open");
+  }, 800);
+
+  // 3️⃣ след края на анимацията махаме интрото
+  setTimeout(() => {
+    intro.style.display = "none";
+  }, 1200);
+});

@@ -423,7 +423,8 @@ body {
 }
 
 .color--beige {
-  background-image: url('images/brown-palette.png');}
+  background-image: url('images/brown-palette.png');
+}
 
 .screen.six-screen {
   scroll-snap-type: y mandatory;
@@ -655,4 +656,90 @@ button:hover {
   .rsvp-container {
     padding: 35px 25px;
   }
+}
+
+/* ===== INTRO (Mobile only) ===== */
+
+.intro {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100dvh;
+  background: #f4f4f4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  perspective: 1500px;
+}
+
+/* Пликът да запълва екрана */
+.card {
+  position: relative;
+  width: 100vw;
+  height: 100dvh;
+  max-width: 480px;
+  /* ограничаваме за големи телефони */
+  max-height: 100dvh;
+}
+
+/* Страните */
+.side {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* важно */
+  top: 0;
+  left: 0;
+  transition: transform 2.5s cubic-bezier(0.22, 1, 0.36, 1);  backface-visibility: hidden;
+  padding: 0;
+}
+
+.side--left {
+  transform-origin: left;
+}
+
+.side--right {
+  transform-origin: right;
+  top: 0;
+  left: 146px;
+}
+
+.seal {
+  position: absolute;
+  width: 90px;
+  /* можеш да коригираш */
+  height: auto;
+  left: 43%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  cursor: pointer;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Когато изчезва */
+.seal.hide {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.8);
+}
+
+/* Отваряне */
+.card.open .side--left {
+  transform: rotateY(-180deg);
+}
+
+.card.open .side--right {
+  transform: rotateY(180deg);
+}
+
+@media (min-width: 768px) {
+  .intro {
+    display: none !important;
+  }
+}
+
+body.intro-active {
+  overflow: hidden;
 }
