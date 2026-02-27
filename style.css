@@ -395,12 +395,12 @@ body {
 .color--beige {
   background: #9c8565;
 }
-.screen .rsvp {
+.screen.rsvp {
   height: 100%;
 }
 
 .rsvp-container {
-  background: #ffffff;
+  background: #ffffffa1;
   padding: 50px 40px;
   width: 100%;
   max-width: 410px;

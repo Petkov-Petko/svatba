@@ -149,8 +149,14 @@
           </div>
           <div class="dress-code">
             <div class="title">
-              <h3>Дресс код</h3>
+              <h3>Дресскод</h3>
             </div>
+            <div class="dress-code__colors">
+              <p>нямаме строго определен дрескод, но ако желаете да се впишете в цветовата стилистика на събитието, ще се радваме да се вдъхновите от нашата палитра.</p>
+            </div>
+          </div>
+          <div class="dress-code">
+    
             <div class="dress-code__colors">
               <span class="color color--white"></span>
               <span class="color color--champagne"></span>
@@ -160,27 +166,26 @@
         </div>
       </section>
       <!-- Screen 6 -->
-      <section class="screen rsvp">
+      <section class="screen rsvp screen--roses">
         <div class="content five-screen">
           <h3 class="text-center pt-4">Моля потвърдете</h3>
           <h3 class="text-center">присъствието си</h3>
           <div class="rsvp-container">
             <form id="rsvpForm">
-              <label for="fullname">Цяло име (на латиница)</label>
+              <label for="fullname">Име и фамилия (на кирилица)</label>
               <input
                 type="text"
                 id="fullname"
                 name="fullname"
-                placeholder="Ivan Ivanov"
+                placeholder="Петко Петков"
                 required
               />
 
               <label for="attendance">Ще присъствате ли?</label>
               <select id="attendance" name="attendance" required>
                 <option value="">Изберете опция</option>
-                <option value="yes">Да</option>
-                <option value="no">Не</option>
-                <option value="maybe">Не знам още</option>
+                <option value="yes">С удоволствие!</option>
+                <option value="no">За съжаление няма да успея.</option>
               </select>
               <label for="inviteInput">Ще поканите ли?</label>
               <div class="invite-list" id="inviteList"></div>
