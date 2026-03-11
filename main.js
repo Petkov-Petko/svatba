@@ -132,3 +132,26 @@ seal.addEventListener("click", () => {
     intro.style.display = "none";
   }, 1200);
 });
+
+// Custom scroll animation observer
+document.addEventListener('DOMContentLoaded', () => {
+  const scrollContainer = document.querySelector('.screens');
+  const elements = document.querySelectorAll('[data-aos]');
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('aos-animate');
+      } else {
+        // Remove class to allow re-animation when scrolling back
+        entry.target.classList.remove('aos-animate');
+      }
+    });
+  }, {
+    root: scrollContainer, // Watch scrolling inside .screens
+    threshold: 0.15,
+    rootMargin: '-50px'
+  });
+  
+  elements.forEach(el => observer.observe(el));
+});

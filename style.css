@@ -17,12 +17,24 @@ body {
 
 /* Snap scroll container */
 .screens {
-  height: 100dvh;
-  height: 100vh;
+
   overflow-y: auto;
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
+}
+
+/* Snap scrolling only on mobile/tablet */
+@media screen and (max-width: 1024px) {
+  .screens {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    height: 100dvh;
+    height: 100vh;
+  }
+
+  .screen {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
 }
 
 /* Base screen */
@@ -30,8 +42,7 @@ body {
   height: 100dvh;
   height: 100vh;
   position: relative;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
+
   background: var(--bg);
 
   /* фонова снимка от CSS */
@@ -430,6 +441,7 @@ body {
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
+  /* overflow: auto; */
   overflow: auto;
 }
 
@@ -730,6 +742,7 @@ button:hover {
   cursor: pointer;
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
+
 @media (max-width: 400px) {
   .seal {
     left: 45%;
@@ -760,4 +773,206 @@ button:hover {
 
 body.intro-active {
   overflow: hidden;
+}
+
+/* ==================== SCROLL ANIMATIONS ==================== */
+
+/* Fade Up (already exists) */
+[data-aos="fade-up"] {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+[data-aos="fade-up"].aos-animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Fade Down */
+[data-aos="fade-down"] {
+  opacity: 0;
+  transform: translateY(-30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+[data-aos="fade-down"].aos-animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Fade Left */
+[data-aos="fade-left"] {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+[data-aos="fade-left"].aos-animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Fade Right */
+[data-aos="fade-right"] {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+[data-aos="fade-right"].aos-animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Fade In (no movement) */
+[data-aos="fade-in"] {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+[data-aos="fade-in"].aos-animate {
+  opacity: 1;
+}
+
+/* Zoom In */
+[data-aos="zoom-in"] {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+[data-aos="zoom-in"].aos-animate {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Zoom Out */
+[data-aos="zoom-out"] {
+  opacity: 0;
+  transform: scale(1.2);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+[data-aos="zoom-out"].aos-animate {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Flip Up */
+[data-aos="flip-up"] {
+  opacity: 0;
+  transform: perspective(600px) rotateX(-45deg);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+[data-aos="flip-up"].aos-animate {
+  opacity: 1;
+  transform: perspective(600px) rotateX(0);
+}
+
+/* Slide Up (more dramatic than fade-up) */
+[data-aos="slide-up"] {
+  opacity: 0;
+  transform: translateY(80px);
+  transition: opacity 1s ease, transform 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+[data-aos="slide-up"].aos-animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Bounce In */
+[data-aos="bounce-in"] {
+  opacity: 0;
+  transform: scale(0.3);
+  transition: opacity 0.6s ease, transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+[data-aos="bounce-in"].aos-animate {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Rotate In */
+[data-aos="rotate-in"] {
+  opacity: 0;
+  transform: rotate(-180deg) scale(0.8);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+[data-aos="rotate-in"].aos-animate {
+  opacity: 1;
+  transform: rotate(0) scale(1);
+}
+
+/* Blur In */
+[data-aos="blur-in"] {
+  opacity: 0;
+  filter: blur(10px);
+  transition: opacity 0.8s ease, filter 0.8s ease;
+}
+
+[data-aos="blur-in"].aos-animate {
+  opacity: 1;
+  filter: blur(0);
+}
+
+/* ==================== ANIMATION DELAYS ==================== */
+[data-aos-delay="100"].aos-animate {
+  transition-delay: 0.1s;
+}
+
+[data-aos-delay="200"].aos-animate {
+  transition-delay: 0.2s;
+}
+
+[data-aos-delay="300"].aos-animate {
+  transition-delay: 0.3s;
+}
+
+[data-aos-delay="400"].aos-animate {
+  transition-delay: 0.4s;
+}
+
+[data-aos-delay="500"].aos-animate {
+  transition-delay: 0.5s;
+}
+
+[data-aos-delay="600"].aos-animate {
+  transition-delay: 0.6s;
+}
+
+[data-aos-delay="800"].aos-animate {
+  transition-delay: 0.8s;
+}
+
+[data-aos-delay="1000"].aos-animate {
+  transition-delay: 1s;
+}
+
+/* ==================== ANIMATION DURATIONS ==================== */
+[data-aos-duration="400"] {
+  transition-duration: 0.4s !important;
+}
+
+[data-aos-duration="600"] {
+  transition-duration: 0.6s !important;
+}
+
+[data-aos-duration="800"] {
+  transition-duration: 0.8s !important;
+}
+
+[data-aos-duration="1000"] {
+  transition-duration: 1s !important;
+}
+
+[data-aos-duration="1200"] {
+  transition-duration: 1.2s !important;
+}
+
+[data-aos-duration="1500"] {
+  transition-duration: 1.5s !important;
 }
