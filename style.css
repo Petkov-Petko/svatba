@@ -176,7 +176,8 @@ body {
   font-size: 1.9rem;
   font-weight: 600;
   letter-spacing: 0.08em;
-  margin-bottom: 3px;
+  line-height: 1;
+  margin-bottom: 15px;
   color: #b7a892;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
@@ -248,10 +249,19 @@ body {
 }
 
 .day-row {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: center;
+  width: 100%;
   gap: 20px;
+}
+
+.day-row .day-side:first-child {
+  text-align: center;
+}
+
+.day-row .day-side:last-child {
+  text-align: center;
 }
 
 .day-side {
@@ -289,7 +299,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
+  gap: 0.7rem;
 }
 
 .timeline {
@@ -299,7 +310,7 @@ body {
   align-items: center;
   text-align: center;
   gap: 7px;
-  margin-top: 3rem;
+  margin-top: 0;
   color: var(--text);
 }
 
@@ -320,7 +331,7 @@ body {
 
 .timeline .event {
   font-family: var(--serif);
-  font-size: 1.3rem;
+  font-size: 1rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -373,8 +384,16 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
   text-align: center;
+}
+
+.restaurant {
+  color: #766852;
+  font-family: var(--serif);
+  font-weight: 800;
+  letter-spacing: normal;
+  padding-left: 7px;
 }
 
 .dress-code {
@@ -591,44 +610,7 @@ button:hover {
   color: #9a8738;
 }
 
-.chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: -6px;
-  margin-bottom: 18px;
-}
 
-.chip {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  /* избутва Х вдясно */
-  width: 100%;
-  /* да заема целия ред */
-  padding: 10px 16px;
-  border: 1px solid #e6d8a8;
-  border-radius: 30px;
-  background: #f5f1e8;
-  color: #6f5a12;
-  font-size: 14px;
-  box-sizing: border-box;
-}
-
-.chip span {
-  text-align: left;
-}
-
-.chip .x {
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  font-size: 18px;
-  color: #b8962e;
-  margin-left: 15px;
-  padding: 0;
-  width: auto;
-}
 
 .invite-list {
   border: 1px solid #e6d8a8;
@@ -662,6 +644,18 @@ button:hover {
   font-size: 13px;
   color: #9a8738;
   padding: 6px 4px;
+}
+
+.room-options {
+  border: 1px solid #e6d8a8;
+  border-radius: 10px;
+  padding: 12px 10px 2px;
+  background: #fff;
+  margin-bottom: 16px;
+}
+
+.room-options label {
+  margin-bottom: 8px;
 }
 
 @media (max-width: 480px) {

@@ -1,8 +1,10 @@
 const fullNameEl = document.getElementById("fullname");
 const inviteListEl = document.getElementById("inviteList");
-const chipsEl = document.getElementById("chips");
 const invitedHiddenEl = document.getElementById("invitedGuests");
 const inviteHintEl = document.getElementById("inviteHint");
+const stayInHotelEl = document.getElementById("stayInHotel");
+const roomOptionsEl = document.getElementById("roomOptions");
+const roomTypeEl = document.getElementById("roomType");
 
 let allowedGuests = [];
 let selectedGuests = [];
@@ -13,32 +15,6 @@ function normalizeName(s) {
 
 function syncHidden() {
   invitedHiddenEl.value = selectedGuests.join(", ");
-}
-
-function renderChips() {
-  if (!chipsEl) return;
-  chipsEl.innerHTML = "";
-
-  selectedGuests.forEach((name) => {
-    const chip = document.createElement("div");
-    chip.className = "chip";
-    chip.innerHTML = `<span>${name}</span>`;
-
-    const x = document.createElement("button");
-    x.type = "button";
-    x.className = "x";
-    x.setAttribute("aria-label", "Remove");
-    x.textContent = "×";
-    x.addEventListener("click", () => {
-      selectedGuests = selectedGuests.filter((n) => n !== name);
-      renderChips();
-      renderInviteList(); // важно: да отрази махането и в чекбокса
-      syncHidden();
-    });
-
-    chip.appendChild(x);
-    chipsEl.appendChild(chip);
-  });
 }
 
 function renderInviteList() {
@@ -70,7 +46,6 @@ function renderInviteList() {
       } else {
         selectedGuests = selectedGuests.filter((n) => n !== name);
       }
-      renderChips();
       syncHidden();
     });
 
@@ -84,7 +59,6 @@ function setAllowedGuestsForPerson(personName) {
 
   // ресетваме избраното при промяна на името
   selectedGuests = [];
-  renderChips();
   syncHidden();
 
   if (key.length === 0) {
@@ -113,6 +87,23 @@ fullNameEl.addEventListener("input", () => {
   }, 180);
 });
 
+function toggleRoomOptions() {
+  if (!stayInHotelEl || !roomOptionsEl || !roomTypeEl) return;
+
+  const shouldShowRooms = stayInHotelEl.value === "yes";
+  roomOptionsEl.hidden = !shouldShowRooms;
+  roomTypeEl.required = shouldShowRooms;
+
+  if (!shouldShowRooms) {
+    roomTypeEl.value = "";
+  }
+}
+
+if (stayInHotelEl) {
+  stayInHotelEl.addEventListener("change", toggleRoomOptions);
+  toggleRoomOptions();
+}
+
 const card = document.getElementById("card");
 const intro = document.getElementById("intro");
 const seal = document.getElementById("seal");
@@ -137,7 +128,7 @@ seal.addEventListener("click", () => {
 document.addEventListener('DOMContentLoaded', () => {
   const scrollContainer = document.querySelector('.screens');
   const elements = document.querySelectorAll('[data-aos]');
-  
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -152,6 +143,6 @@ document.addEventListener('DOMContentLoaded', () => {
     threshold: 0.15,
     rootMargin: '-50px'
   });
-  
+
   elements.forEach(el => observer.observe(el));
 });
