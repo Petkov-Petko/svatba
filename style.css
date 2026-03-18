@@ -37,7 +37,6 @@ body {
   }
 }
 
-/* Base screen */
 .screen {
   height: 100dvh;
   height: 100vh;
@@ -45,13 +44,11 @@ body {
 
   background: var(--bg);
 
-  /* фонова снимка от CSS */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
-/* Снимки в CSS */
 .screen--roses {
   background:
     linear-gradient(rgb(0 0 0 / 28%), rgba(0, 0, 0, 0.324)),
@@ -102,14 +99,12 @@ body {
       rgba(255, 255, 255, 0) 21%);
 }
 
-/* content layer */
 .content {
   position: relative;
   z-index: 3;
   height: 100%;
 }
 
-/* fonts */
 .title {
   font-family: var(--serif);
   font-size: clamp(2.5rem, 6vw, 3rem);
@@ -324,7 +319,7 @@ body {
 
 .timeline .time {
   font-family: var(--classic);
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   letter-spacing: 0.1em;
   font-weight: 600;
 }
@@ -416,7 +411,7 @@ body {
   display: flex;
   justify-content: center;
   gap: 18px;
-  padding: 15px 11px;
+  padding: 11px;
   background-color: #5847289c;
   color: white;
 }
