@@ -38,8 +38,10 @@ body {
 }
 
 .screen {
-  height: 100dvh;
   height: 100vh;
+  height: 100svh;
+  height: 100dvh;
+  padding-bottom: calc(40px + env(safe-area-inset-bottom));
   position: relative;
 
   background: var(--bg);
