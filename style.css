@@ -38,9 +38,9 @@ body {
 }
 
 .screen {
-  height: 100vh;
-  height: 100svh;
   height: 100dvh;
+  height: 100svh;
+  height: 100vh;
   padding-bottom: calc(40px + env(safe-area-inset-bottom));
   position: relative;
 
@@ -675,8 +675,6 @@ button:hover {
   justify-content: center;
   z-index: 9999;
   perspective: 1500px;
-  padding-top: env(safe-area-inset-top);
-  padding-bottom: env(safe-area-inset-bottom);
 }
 
 /* Пликът да запълва екрана */
