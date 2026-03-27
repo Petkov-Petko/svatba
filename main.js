@@ -5,6 +5,9 @@ const inviteHintEl = document.getElementById("inviteHint");
 const stayInHotelEl = document.getElementById("stayInHotel");
 const roomOptionsEl = document.getElementById("roomOptions");
 const roomTypeEl = document.getElementById("roomType");
+const form = document.getElementById("rsvpForm");
+const button = form.querySelector("button");
+const statusEl = document.getElementById("formStatus");
 
 let allowedGuests = [];
 let selectedGuests = [];
@@ -103,6 +106,60 @@ if (stayInHotelEl) {
   stayInHotelEl.addEventListener("change", toggleRoomOptions);
   toggleRoomOptions();
 }
+
+
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const data = {
+    fullname: form.fullname.value,
+    attendance: form.attendance.value,
+    invitedGuests: selectedGuests,
+    stayInHotel: form.stayInHotel.value,
+    roomType: form.roomType.value,
+    message: form.message.value,
+  };
+
+  try {
+    // disable бутон
+    button.disabled = true;
+    button.textContent = "Изпраща се...";
+
+    // loading текст
+    statusEl.textContent = "Моля изчакайте...";
+    statusEl.className = "form-status loading";
+
+    await fetch("https://script.google.com/macros/s/AKfycby6idpwNopWBnEpkVWqZasC99alzt6k_HxPRoDC3C4zI5sm_h4SaEaYQJcauEzwmGV-Zw/exec", {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    // success
+    statusEl.textContent = "✅ Успешно изпратихте вашето потвърждение!";
+    statusEl.className = "form-status success";
+
+    button.textContent = "Изпратено ✓";
+
+    form.reset();
+    selectedGuests = [];
+    renderInviteList();
+
+  } catch (err) {
+    // error
+    statusEl.textContent = "❌ Възникна грешка. Опитайте отново.";
+    statusEl.className = "form-status error";
+
+    button.disabled = false;
+    button.textContent = "Изпрати";
+  }
+});
+
+// card
 
 const card = document.getElementById("card");
 const intro = document.getElementById("intro");
