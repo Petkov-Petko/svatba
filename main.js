@@ -133,13 +133,10 @@ document.addEventListener('DOMContentLoaded', () => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('aos-animate');
-      } else {
-        // Remove class to allow re-animation when scrolling back
-        entry.target.classList.remove('aos-animate');
       }
     });
   }, {
-    root: scrollContainer, // Watch scrolling inside .screens
+    root: scrollContainer,
     threshold: 0.15,
     rootMargin: '-50px'
   });

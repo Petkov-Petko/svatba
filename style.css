@@ -457,8 +457,7 @@ body {
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
-  /* overflow: auto; */
-  overflow: auto;
+  overflow: hidden;
 }
 
 .screen.rsvp {
@@ -484,6 +483,9 @@ body {
 } */
 
 .rsvp-container {
+  max-height: 85vh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
   background: #ffffffa1;
   padding: 50px 40px;
   width: 100%;
