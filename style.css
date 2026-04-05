@@ -449,8 +449,8 @@ a {
 }
 
 /* Конкретни цветове */
-.color--white {
-  background-image: url('images/white-palette.png');
+.color--dark-brown {
+  background-image: url('images/dark-brown.webp');
 }
 
 .color--champagne {
