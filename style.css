@@ -77,6 +77,12 @@ a {
     linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
     url('images/invites.webp') center/cover no-repeat;
 }
+.screen--program {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+    url('images/program-photo.webp') center/cover no-repeat;
+    color: white !important;
+}
 
 /* Overlay dim */
 /* .screen::after {
@@ -191,8 +197,8 @@ a {
   font-family: var(--script);
   font-size: clamp(3.9rem, 6vw, 6em);
   font-weight: 600;
-  color: #3a3632;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  color: #ada49b;
+  text-shadow: 0 2px 8px rgba(71, 70, 70, 0.25);
 }
 
 .second-screen__text h3 {
@@ -200,7 +206,7 @@ a {
   font-size: 2.1rem;
   font-weight: 400;
   margin: 0;
-  color: #c6a75e;
+  color: #b7a892;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
 
@@ -324,7 +330,7 @@ a {
   flex-direction: column;
   gap: 6px;
   padding-bottom: 11px;
-  border-bottom: 3px solid rgba(26, 26, 26, 0.228);
+  border-bottom: 3px solid rgba(255, 255, 255, 0.228);
 }
 
 .timeline .time {
@@ -332,6 +338,7 @@ a {
   font-size: 1.1rem;
   letter-spacing: 0.1em;
   font-weight: 600;
+    color: #b7a892;
 }
 
 .timeline .event {
@@ -339,6 +346,7 @@ a {
   font-size: 1rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  color: rgb(222, 220, 199);
 }
 
 .modern-bg {
