@@ -77,11 +77,28 @@ a {
     linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
     url('images/invites.webp') center/cover no-repeat;
 }
+
+
+
 .screen--program {
   background:
     linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
     url('images/program-photo.webp') center/cover no-repeat;
     color: white !important;
+}
+
+@media (min-width: 768px) {
+  .screen--invites {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+    url('images/invation-width.webp') center/cover no-repeat;
+}
+.screen--program {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+    url('images/program-photo-width.webp') center/cover no-repeat;
+    color: white !important;
+}
 }
 
 /* Overlay dim */
