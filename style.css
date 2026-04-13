@@ -482,6 +482,10 @@ a {
   background-image: url('images/gold-palette.png');
 }
 
+.color--gold {
+  background-image: url('images/gold-color.png');
+}
+
 .color--beige {
   background-image: url('images/brown-palette.png');
 }
